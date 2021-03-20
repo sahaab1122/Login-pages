@@ -1,21 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Profiler } from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import Signup from "./hh/Screen/Signup"
+import { NavigationContainer } from '@react-navigation/native';
+import Login from "./hh/Screen/Login"
+import Btn from "./hh/Component/Btn"
+import Forgetpassword from "./hh/Screen/Forgetpassword"
+import Updatepassword from "./hh/Screen/Updatepassword"
 
-export default function App() {
+import Textbtn from "./hh/Component/Textbtn"
+const Stack = createStackNavigator();
+
+function MyStack() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+
+    <Stack.Navigator>
+      <Stack.Screen name="Signup" component={Signup} />
+      <Stack.Screen name="Login" component={Login}/>
+      <Stack.Screen name="Btn" component={Btn}/>
+      <Stack.Screen name="Textbtn" component={Textbtn} />
+      <Stack.Screen name="Forgetpassword" component={Forgetpassword}/>
+      <Stack.Screen name="Updatepassword" component={Updatepassword}/>
+      
+      
+    </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default MyStack
